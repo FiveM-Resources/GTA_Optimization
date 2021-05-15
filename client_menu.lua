@@ -1,12 +1,13 @@
 local mainMenu = RageUI.CreateMenu("Optimization Menu",  "Optimization Menu")
-local index_vue, distance_vue = 2, 1.0
+local index_vue_lod, distance_vue_lod = 2, 1.0
 local index_ombre, distance_shadow = 2, 0.5
+
 
 Citizen.CreateThread(function()
     while (true) do
         Citizen.Wait(0)
         RageUI.IsVisible(mainMenu, function()
-            RageUI.List("Shadow", {
+            RageUI.List("Cascade Shadow", {
                 { Name = "Without", Value = 0.0 },
                 { Name = "Normal", Value = 0.5 },
                 { Name = "Complex", Value = 1.0 },
@@ -17,14 +18,14 @@ Citizen.CreateThread(function()
                 end
             })
 
-            RageUI.List("View distance", {
+            RageUI.List("Lod View distance", {
                 { Name = "Near", Value = 0.5 },
                 { Name = "Normal", Value = 1.0 },
                 { Name = "Far", Value = 200.0 },
-            }, index_vue, "", {}, true, {
+            }, index_vue_lod, "", {}, true, {
                 onListChange = function(Index, Item)
-                    index_vue = Index 
-                    distance_vue = Item["Value"]
+                    index_vue_lod = Index 
+                    distance_vue_lod = Item["Value"]
                 end
             })
         end, function()end)
@@ -38,7 +39,8 @@ Citizen.CreateThread(function()
             DisableControlAction(0, 172, true) --DESACTIVE CONTROLL HAUT  
         end
 
-        OverrideLodscaleThisFrame(distance_vue)
+        OverrideLodscaleThisFrame(distance_vue_lod)
+        SetLightsCutoffDistanceTweak(distance_vue_lod)
         CascadeShadowsSetCascadeBoundsScale(distance_shadow)
     end
 end)

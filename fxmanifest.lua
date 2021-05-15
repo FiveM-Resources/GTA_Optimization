@@ -1,10 +1,6 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'SuperCoolNinja'
-description 'Let your users optimize fps'
-version '1.0.0'
-
 client_scripts {
     "src/RMenu.lua",
     "src/menu/RageUI.lua",
