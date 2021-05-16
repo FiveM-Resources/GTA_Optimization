@@ -8,6 +8,7 @@ Simple ressource that Let your users optimize fps.
 ## Features
 - Can change the distance view.
 - Can change the Cascade Shadow distance.
+- Now Data are Save into cache by @Ramex_Delta_Gta.
 
 ```
     ensure GTA_Optimization
@@ -15,3 +16,6 @@ Simple ressource that Let your users optimize fps.
 
 ## License :
 @SuperCoolNinja
+
+## Contributeur : 
+@Ramex_Delta_Gta
